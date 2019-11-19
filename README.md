@@ -1,4 +1,10 @@
-# Gitlab workshoops
+# Gitlab workshoop
+
+This workshop is to teach you the basics of using gitlab. You will learn how to run gitlab on your computer using the docker. You will build your first project and learn the syntax of a typical pipeline. In the next stage you will learn the power to create artifacts and use them in projects. You will
+learn how to build job hierarchies and create dependencies. You will learn the methods of grouping jobs and sorting them to build a clear code!
+
+*I invite you to read!*
+*Good luck!*
 
 ## Before You start
 
