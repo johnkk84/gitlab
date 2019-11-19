@@ -2,3 +2,7 @@
 gitlab/conf/*
 gitlab/data/*
 gitlab/logs/*
+!gitlab/conf/data/README.md
+!gitlab/conf/conf/README.md
+!gitlab/conf/logs/README.md
+!gitlab/README.md
