@@ -1,4 +1,5 @@
 # Gitlab education - Gitlab Community Edition
+# Persistent volume for gitlab data store.
 
 version: '3.4'
 services:
@@ -6,11 +7,13 @@ services:
   cicd-gitlab:
     image: gitlab/gitlab-ce:latest
     volumes:
-      - ${PWD}/gitlab/conf:/etc/gitlab
-      - ${PWD}/gitlab/logs:/var/log/gitlab
-      - ${PWD}/gitlab/data:/var/opt/gitlab
-    hostname: cicd-gitlab
-    container_name: cicd-gitlab
+      - gitlab-log:/var/log/gitlab
+      - gitlab-opt:/var/opt/gitlab
+    secrets:
+       - source: gitlab.rb
+         target: /etc/gitlab/gitlab.rb
+    hostname: cicd
+    container_name: cicd
     restart: always
     networks:
        EDU_GITLAB_Net:
@@ -26,3 +29,11 @@ networks:
     ipam:
       config:
         - subnet: 101.101.101.0/24
+
+secrets:
+  gitlab.rb:
+    file: ./gitlab/conf/gitlab.rb
+
+volumes:
+  gitlab-log:
+  gitlab-opt:

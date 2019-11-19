@@ -20,7 +20,9 @@ You should get similar output:
 
 ```
 Creating network "gitlab_EDU_GITLAB_Net" with driver "bridge"
-Creating cicd-gitlab ... done
+Creating volume "gitlab_gitlab-log" with default driver
+Creating volume "gitlab_gitlab-opt" with default driver
+Creating cicd ... done
 ```
 
 Check if cicd-gitlab container is up:
@@ -30,9 +32,10 @@ Check if cicd-gitlab container is up:
 Then you should get:
 
 ```
-Name           Command               State                                            Ports                                  
---------------------------------------------------------------------------------------------------------------------------------
-cicd-gitlab   /assets/wrapper   Up (health: starting)   22/tcp, 0.0.0.0:443->443/tcp, 0.0.0.0:4567->4567/tcp, 0.0.0.0:80->80/tcp
+Name       Command               State                                            Ports                                  
+-------------------------------------------------------------------------------------------------------------------------
+cicd   /assets/wrapper   Up (health: starting)   22/tcp, 0.0.0.0:443->443/tcp, 0.0.0.0:4567->4567/tcp, 0.0.0.0:80->80/tcp
+
 ```
 
 After 5 mins your container should be started as follow:
@@ -40,13 +43,13 @@ After 5 mins your container should be started as follow:
 ```
 Name           Command          State                                        Ports                                  
 -----------------------------------------------------------------------------------------------------------------------
-cicd-gitlab   /assets/wrapper   Up (healthy)   22/tcp, 0.0.0.0:443->443/tcp, 0.0.0.0:4567->4567/tcp, 0.0.0.0:80->80/tcp
+cicd   /assets/wrapper   Up (healthy)   22/tcp, 0.0.0.0:443->443/tcp, 0.0.0.0:4567->4567/tcp, 0.0.0.0:80->80/tcp
 
 ```
 
 If for some reason did not started please check logs using command:
 
-`docker logs -f cicd-gitlab`
+`docker logs -f cicd`
 
 ```
 - execute cat /etc/sysctl.conf /etc/sysctl.d/*.conf  | sysctl -e -p -
@@ -82,4 +85,19 @@ Now time for login into gitlab WebUi. Using firefox or chrome and type url:
 http://localhost
 ```
 
-![](./images/gitlab-login.png"")
+![](./images/gitlab-login.png "")
+
+System will ask you for setup root password. Please write your password twice and remember!
+You will use this password next login!
+
+When you type password twice and will get 422 error it means that web browser cleanup cookies is needed.
+
+If your password will successfully change you can log into Gitlab:
+
+![](./images/changed-pass.png "")
+
+You should see similar webpage:
+
+![](./images/login-to-gitlab.png "")
+
+`Please consider why I used persistent volume directory instead. What do you think what would be if I will use directory mappings ?`
