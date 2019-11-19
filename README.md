@@ -147,7 +147,7 @@ Below you will find the main advantages and characteristics:
 
 1. [Start Gitlab server using docker-compose.](workshoop/exercise1.md)
 2. [Enable SSL Self Sign On secure communication.](workshoop/exercise2.md)
-3. [Setup gitlab runner for feature project uses](workshoop/excercise3.md)
+3. [Setup gitlab runner for feature project uses.](workshoop/exercise3.md)
 4. [Build your first project.](workshoop/exercise4.md)
 5. [Build artifacts and using them in projects.](workshoop/exercise5.md)
 6. [Applied changes in project (pipeline observation).](workshoop/excercise6.md)

@@ -1,1 +1,1 @@
-# Setup gitlab runner for feature project uses
+# Setup gitlab runner for feature project uses.
