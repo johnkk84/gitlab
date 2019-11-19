@@ -1,0 +1,28 @@
+# Gitlab education - Gitlab Community Edition
+
+version: '3.4'
+services:
+
+  cicd-gitlab:
+    image: gitlab/gitlab-ce:latest
+    volumes:
+      - ${PWD}/gitlab/conf:/etc/gitlab
+      - ${PWD}/gitlab/logs:/var/log/gitlab
+      - ${PWD}/gitlab/data:/var/opt/gitlab
+    hostname: cicd-gitlab
+    container_name: cicd-gitlab
+    restart: always
+    networks:
+       EDU_GITLAB_Net:
+         ipv4_address: 101.101.101.2
+    ports:
+      - "0.0.0.0:80:80/tcp"
+      - "0.0.0.0:443:443/tcp"
+      - "0.0.0.0:4567:4567/tcp"
+
+networks:
+  EDU_GITLAB_Net:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 101.101.101.0/24
