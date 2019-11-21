@@ -31,11 +31,12 @@ File should looks as follow:
 version: '3.4'
 services:
 
-  cicd-gitlab:
+  cicd:
     image: gitlab/gitlab-ce:latest
     volumes:
       - gitlab-log:/var/log/gitlab
       - gitlab-opt:/var/opt/gitlab
+      - gitlab-etc:/etc/gitlab
     secrets:
        - source: gitlab.rb
          target: /etc/gitlab/gitlab.rb
@@ -49,21 +50,19 @@ services:
       - "0.0.0.0:80:80/tcp"
       - "0.0.0.0:443:443/tcp"
       - "0.0.0.0:4567:4567/tcp"
+    extra_hosts:
+      - "runner1:101.101.101.3"
+      - "runner2:101.101.101.4"
 
-networks:
-  EDU_GITLAB_Net:
-    driver: bridge
-    ipam:
-      config:
-        - subnet: 101.101.101.0/24
-
-secrets:
-  gitlab.rb:
-    file: ./gitlab/conf/gitlab.rb
-
-volumes:
-  gitlab-log:
-  gitlab-opt:
+  .
+  ..
+  ...
+  volumes:
+    gitlab-log:
+    gitlab-opt:
+    gitlab-etc:
+#    runner1-conf:
+#    runner2-conf:
 ```
 
 For better understanding docker-compose I would like to refer you to the documentation.

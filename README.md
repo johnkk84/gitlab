@@ -1,7 +1,6 @@
 # Gitlab workshoop
 
-This workshop is to teach you the basics of using gitlab. You will learn how to run gitlab on your computer using the docker. You will build your first project and learn the syntax of a typical pipeline. In the next stage you will learn the power to create artifacts and use them in projects. You will
-learn how to build job hierarchies and create dependencies. You will learn the methods of grouping jobs and sorting them to build a clear code!
+This workshop is to teach you the basics of using gitlab. You will learn how to run gitlab on your computer using the docker. You will build your first project and learn the syntax of a typical pipeline. In the next stage you will learn the power to create artifacts and use them in projects. I will show You how to build job hierarchies and create dependencies. You will ge to know the methods of grouping jobs and sorting them to build a clear code!
 
 *I invite you to read!*
 *Good luck!*
@@ -154,6 +153,7 @@ Below you will find the main advantages and characteristics:
 1. [Start Gitlab server using docker-compose.](workshoop/exercise1.md)
 2. [Enable SSL Self Sign On secure communication.](workshoop/exercise2.md)
 3. [Setup gitlab runner for feature project uses.](workshoop/exercise3.md)
-4. [Build your first project.](workshoop/exercise4.md)
-5. [Build artifacts and using them in projects.](workshoop/exercise5.md)
+4. [Create your first project, Sample execution, Why it not works?](workshoop/exercise4.md)
+5. [Adjust project to use gitlab runners.](workshoop/exercise5.md)
 6. [Applied changes in project (pipeline observation).](workshoop/excercise6.md)
+7. [Build simple artifact and use them in other jobs.](workshoop/excercise7.md)
