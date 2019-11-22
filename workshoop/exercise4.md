@@ -67,3 +67,9 @@ Remember to click "Save changes"
 ![](./images/save-changes-pipeline-config.jpg "")
 
 When it will be change Gitlab should trigger auto build project and go through .gitlab-ci-p1.yml. Please stop for the moment and study pipeline definition.
+
+
+You should have similar output:
+
+![](./images/run-pipeline-01.jpg "")
+![](./images/run-pipeline-02.jpg "")
