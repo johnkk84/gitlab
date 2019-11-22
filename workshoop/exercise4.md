@@ -38,20 +38,9 @@ my-first-project	https://gitlab:gdusoNkZVJRBo3fZEryU@cicd/gitlab/my-first-projec
 $ git add -A .
 $ git commit -m "My first commit in my first project"
 [master (root-commit) 88aa104] My first commit in my first project
- 6 files changed, 60 insertions(+)
- create mode 100644 .cicd/cleanup.yml
- create mode 100644 .cicd/dev.yml
- create mode 100644 .cicd/prod.yml
- create mode 100644 .cicd/test.yml
- create mode 100644 .gitlab-ci-p1.yml
- create mode 100644 code/app1/app1.c
-
-$ git push -f my-first-project master
-Counting objects: 9, done.
-Delta compression using up to 4 threads.
-Compressing objects: 100% (6/6), done.
-Writing objects: 100% (9/9), 1.12 KiB | 0 bytes/s, done.
-Total 9 (delta 0), reused 0 (delta 0)
+.
+..
+...
 To https://gitlab:gdusoNkZVJRBo3fZEryU@cicd/gitlab/my-first-project.git
  * [new branch]      master -> master
 ```
@@ -76,3 +65,5 @@ It is still in stuck mode. Why? Because we are using different gitlab pipeline d
 Remember to click "Save changes"
 
 ![](./images/save-changes-pipeline-config.jpg "")
+
+When it will be change Gitlab should trigger auto build project and go through .gitlab-ci-p1.yml. Please stop for the moment and study pipeline definition.
