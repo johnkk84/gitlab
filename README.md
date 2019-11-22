@@ -154,6 +154,3 @@ Below you will find the main advantages and characteristics:
 2. [Enable SSL Self Sign On secure communication.](workshoop/exercise2.md)
 3. [Setup gitlab runner for feature project uses.](workshoop/exercise3.md)
 4. [Create your first project, Sample execution, Why it not works?](workshoop/exercise4.md)
-5. [Adjust project to use gitlab runners.](workshoop/exercise5.md)
-6. [Applied changes in project (pipeline observation).](workshoop/excercise6.md)
-7. [Build simple artifact and use them in other jobs.](workshoop/excercise7.md)
