@@ -4,11 +4,12 @@
 version: '3.4'
 services:
 
-  cicd-gitlab:
+  cicd:
     image: gitlab/gitlab-ce:latest
     volumes:
       - gitlab-log:/var/log/gitlab
       - gitlab-opt:/var/opt/gitlab
+      - gitlab-etc:/etc/gitlab
     secrets:
        - source: gitlab.rb
          target: /etc/gitlab/gitlab.rb
@@ -22,6 +23,40 @@ services:
       - "0.0.0.0:80:80/tcp"
       - "0.0.0.0:443:443/tcp"
       - "0.0.0.0:4567:4567/tcp"
+    extra_hosts:
+      - "runner1:101.101.101.3"
+      - "runner2:101.101.101.4"
+
+  runner1:
+    image: gitlab/gitlab-runner:latest
+    secrets:
+       - source: cicd.crt
+         target: /etc/gitlab-runner/certs/cicd.crt
+    hostname: runner1
+    container_name: runner1
+    restart: always
+    networks:
+       EDU_GITLAB_Net:
+         ipv4_address: 101.101.101.3
+    extra_hosts:
+      - "cicd:101.101.101.2"
+      - "runner2:101.101.101.4"
+
+  runner2:
+    image: gitlab/gitlab-runner:latest
+    secrets:
+       - source: cicd.crt
+         target: /etc/gitlab-runner/certs/cicd.crt
+    volumes: ["runner2-conf:/etc/gitlab-runner:Z", "/var/run/docker.sock:/var/run/docker.sock"]
+    hostname: runner2
+    container_name: runner2
+    restart: always
+    networks:
+       EDU_GITLAB_Net:
+         ipv4_address: 101.101.101.4
+    extra_hosts:
+      - "cicd:101.101.101.2"
+      - "runner1:101.101.101.3"
 
 networks:
   EDU_GITLAB_Net:
@@ -33,7 +68,12 @@ networks:
 secrets:
   gitlab.rb:
     file: ./gitlab/conf/gitlab.rb
+  cicd.crt:
+    file: ./gitlab-runner/conf/cicd.crt
 
 volumes:
   gitlab-log:
   gitlab-opt:
+  gitlab-etc:
+  runner1-conf:
+  runner2-conf:

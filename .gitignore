@@ -1,5 +1,1 @@
 # Exclude directories
-gitlab/conf/*
-gitlab/data/*
-gitlab/logs/*
-gitlab/*
